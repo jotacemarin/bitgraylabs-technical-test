@@ -13,7 +13,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import history from 'utils/history';
+import history from 'utils/redux/utils/history';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
@@ -28,7 +28,7 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
-import configureStore from './configureStore';
+import configureStore from './utils/redux/configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';

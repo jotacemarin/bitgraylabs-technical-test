@@ -1,18 +1,24 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- */
+import { connect } from 'react-redux';
+import { compose, bindActionCreators } from 'redux';
+import { injectIntl } from 'react-intl';
 
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+// import injectSaga from 'utils/redux/injectables/injectSaga';
 
-export default function HomePage() {
-  return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
-  );
-}
+import * as globalActions from 'containers/App/redux/actions';
+
+import HomePage from './view';
+
+export const mapDispatchToProps = dispatch => ({
+  globalActions: bindActionCreators(globalActions, dispatch),
+});
+
+const mapStateToProps = state => ({
+  loading: state.global.get('loading'),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(withConnect)(injectIntl(HomePage));

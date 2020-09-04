@@ -12,4 +12,12 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'This is the HomePage container!',
   },
+  titleHeader: {
+    id: `${scope}.titleHeader`,
+    defaultMessage: 'Comic Book',
+  },
+  subtitleHeader: {
+    id: `${scope}.subtitleHeader`,
+    defaultMessage: 'Latest Issues',
+  },
 });

@@ -10,7 +10,11 @@ import getInjectors, {
   injectSagaFactory,
   ejectSagaFactory,
 } from '../sagaInjectors';
-import { DAEMON, ONCE_TILL_UNMOUNT, RESTART_ON_REMOUNT } from '../constants';
+import {
+  DAEMON,
+  ONCE_TILL_UNMOUNT,
+  RESTART_ON_REMOUNT,
+} from '../../../constants';
 
 function* testSaga() {
   yield put({ type: 'TEST', payload: 'yup' });

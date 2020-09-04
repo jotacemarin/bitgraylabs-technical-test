@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 
 import configureStore from '../../configureStore';
 import injectSaga, { useInjectSaga } from '../injectSaga';
-import * as sagaInjectors from '../sagaInjectors';
+import * as sagaInjectors from '../../injectors/sagaInjectors';
 
 // Fixtures
 const Component = () => null;

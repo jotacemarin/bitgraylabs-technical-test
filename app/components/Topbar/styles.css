@@ -1,0 +1,24 @@
+header {
+  width: 100%;
+}
+
+.second-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 8px;
+}
+
+.topbar-title {
+  text-align: center;
+}
+
+.topbar-subtitle {
+  margin-left: 8px;
+}
+
+.topbar-buttons-containers {
+  display: flex;
+  flex-direction: row;
+}

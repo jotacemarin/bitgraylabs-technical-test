@@ -1,0 +1,35 @@
+button {
+  padding: 4px 8px;
+  margin: 2px 4px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button:last-child {
+  margin-right: 8px;
+}
+
+button:first-child {
+  margin-left: 8px;
+}
+
+span.button-icon {
+  margin-right: 4px;
+  visibility: none;
+}
+span.button-icon.visible {
+  display: inline;
+}
+
+button.selected {
+  color: red;
+}
+
+@media (max-width: 425px) {
+  .button-label {
+    display: none;
+  }
+}

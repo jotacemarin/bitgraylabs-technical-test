@@ -1,0 +1,25 @@
+.single-item {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 24px 16px;
+}
+
+.single-item-img {
+  height: auto;
+  width: 160px;
+}
+
+.single-item-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 24px;
+}
+
+@media (max-width: 425px) {
+  .single-item-img {
+    width: 100px;
+  }
+}
