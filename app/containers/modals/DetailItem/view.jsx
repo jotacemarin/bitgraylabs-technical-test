@@ -1,3 +1,4 @@
+// Dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { intlShape } from 'react-intl';
@@ -12,6 +13,11 @@ import messages from './messages';
 // Styles
 import './styles.css';
 
+/**
+ * @author Julio Marin
+ * @file app\containers\modals\DetailItem\view.jsx
+ * @description DetailItem container
+ */
 export class DetailItem extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +30,10 @@ export class DetailItem extends Component {
     };
   }
 
+  /**
+   * React lifecycle method that call wen component is updated
+   * @param { object } prevProps - Component preview props
+   */
   componentDidUpdate(prevProp) {
     const { url } = this.props;
     if (url && url !== prevProp.url) {
@@ -31,6 +41,10 @@ export class DetailItem extends Component {
     }
   }
 
+  /**
+   * React Lifecycle method, render component to display in APP
+   * @return { Component } AttachButton component to render
+   */
   render() {
     const {
       loading,
@@ -87,8 +101,14 @@ export class DetailItem extends Component {
     );
   }
 
+  /**
+   * Helper fucntion to close modal
+   */
   close = () => this.props.actions.displayModal(false, false);
 
+  /**
+   * Helper function to init request to get new issue details
+   */
   getIssue = () => {
     const { url } = this.props;
     if (!url) {
@@ -103,6 +123,10 @@ export class DetailItem extends Component {
     getIssue(url, this.getSuccessIssue);
   };
 
+  /**
+   * Helper function to set the response in local state
+   * @param { object } response - body of response
+   */
   getSuccessIssue = response => {
     const {
       results: {
@@ -123,6 +147,9 @@ export class DetailItem extends Component {
   };
 }
 
+/**
+ * Component properties
+ */
 DetailItem.propTypes = {
   intl: intlShape.isRequired,
   globalActions: PropTypes.object,

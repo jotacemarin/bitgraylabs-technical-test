@@ -1,3 +1,4 @@
+// Dependencies
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
@@ -16,6 +17,10 @@ import messages from './messages';
 import { parseElements } from './helpers';
 
 export class HomePage extends Component {
+  /**
+   * Initialize component
+   * @param { Object } props - Component inital properties
+   */
   constructor(props) {
     super(props);
 
@@ -25,10 +30,18 @@ export class HomePage extends Component {
     };
   }
 
+  /**
+   * React lifecycle method that call wen component is updated
+   * @param { object } prevProps - Component preview props
+   */
   componentDidMount() {
     this.getIssues();
   }
 
+  /**
+   * React Lifecycle method, render component to display in APP
+   * @return { Component } AttachButton component to render
+   */
   render() {
     const {
       intl: { formatMessage },
@@ -66,6 +79,10 @@ export class HomePage extends Component {
     );
   }
 
+  /**
+   * Helper function to change design between list o grid
+   * @param { boolean } isGrid - param to identify if is grid
+   */
   changeView = isGrid => {
     const {
       actions: { toggleView },
@@ -73,6 +90,9 @@ export class HomePage extends Component {
     toggleView(isGrid);
   };
 
+  /**
+   * Helper function to init request to obtain issues
+   */
   getIssues = () => {
     const {
       globalActions: { setLoading },
@@ -83,6 +103,10 @@ export class HomePage extends Component {
     getIssues(9, offset, this.getSuccessIssues);
   };
 
+  /**
+   * Helper function to show modal and pass parameters
+   * @param { string } url - url address of specific issue
+   */
   getIssue = url => {
     if (!url) {
       return;
@@ -94,6 +118,10 @@ export class HomePage extends Component {
     displayModal(true, url);
   };
 
+  /**
+   * Helper function to set response in local state
+   * @param { object } response - incoming data from response
+   */
   getSuccessIssues = response => {
     const { results: previusResults } = this.state;
     const { results } = response;
@@ -105,6 +133,9 @@ export class HomePage extends Component {
   };
 }
 
+/**
+ * Component properties
+ */
 HomePage.propTypes = {
   intl: intlShape.isRequired,
   globalActions: PropTypes.object,

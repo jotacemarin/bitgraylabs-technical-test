@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects';
 
-import request from 'commons/request';
-
 import * as globalActions from 'containers/App/redux/actions';
+
+import request from 'services/request';
 
 const api = 'https://comicvine.gamespot.com/api/';
 const apiToken = '8847c7df68b0259f63f59a6d80b5e8ea8a7f5eee';

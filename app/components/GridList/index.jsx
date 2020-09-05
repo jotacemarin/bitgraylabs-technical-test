@@ -31,14 +31,14 @@ export const List = ({ elements, mode, onClick, getMore }) => (
           />
         ))}
     </div>
-    {elements.length && (
+    {elements.length ? (
       <Button
         onClick={getMore}
         label="Load more"
         icon={<AiFillDownCircle />}
         full
       />
-    )}
+    ) : null}
   </>
 );
 

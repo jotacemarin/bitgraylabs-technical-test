@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // Components
 import Loading from 'components/Loading';
 import Topbar from 'components/Topbar';
+import CheckConn from 'components/CheckConn';
 
 // Styles
 import './styles.css';
@@ -19,6 +20,7 @@ export const Layout = ({ title, subtitle, children, loading, buttons }) => (
     <Topbar title={title} subtitle={subtitle} buttons={buttons} />
     {loading && <Loading />}
     <div className="main-container">{children}</div>
+    <CheckConn />
   </Fragment>
 );
 

@@ -1,5 +1,6 @@
 {
   "app.components.SingleItem.withoutName": "Without Name Available",
+  "app.components.CheckConn.withoutConn": "No Internet connection",
   "app.containers.HomePage.header": "This is the HomePage container!",
   "app.containers.HomePage.titleHeader": "Comic Book",
   "app.containers.HomePage.subtitleHeader": "Latest Issues",
@@ -11,5 +12,7 @@
   "app.containers.DetailItem.locations": "Locations",
   "app.containers.DetailItem.concepts": "Concepts",
   "app.containers.DetailItem.withoutName": "Without Name Available",
-  "app.containers.NotFoundPage.header": "This is the NotFoundPage container!"
+  "app.containers.NotFoundPage.header": "This is the NotFoundPage container!",
+  "app.containers.HandlerAlerts.erorrConn": "Error connection",
+  "app.containers.HandlerAlerts.erorrConnDescription": "Please confirm your internet connection or make sure the proxy server is running. You can start the server with the following command:"
 }

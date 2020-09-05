@@ -35,7 +35,7 @@ export const CreditList = ({ title, items, image }) =>
  * Component properties
  */
 CreditList.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   items: PropTypes.array,
   image: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };

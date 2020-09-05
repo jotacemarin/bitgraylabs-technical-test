@@ -22,10 +22,7 @@ app.get('/proxy', (req, res) => {
       if (error || response.statusCode !== 200) {
         res.status(500).json({ type: 'error', error });
       }
-
       const responseJSON = JSON.parse(body);
-      console.log(responseJSON);
-
       res.status(200).json(responseJSON);
     }
   );
