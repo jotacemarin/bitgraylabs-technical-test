@@ -1,13 +1,35 @@
 .single-item {
   width: auto;
   display: flex;
-  flex-direction: row;
   margin: 24px 16px;
+  cursor: pointer;
+}
+
+.single-item.in-list {
+  flex-direction: row;
+}
+
+.single-item.in-grid {
+  width: 200px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-item-container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 200px;
 }
 
 .single-item-img {
   height: auto;
-  width: 160px;
+  width: 190px;
+}
+
+.single-item.in-list .single-item-info {
+  padding-top: 14px;
 }
 
 .single-item-info {
@@ -20,6 +42,11 @@
 
 @media (max-width: 425px) {
   .single-item-img {
-    width: 100px;
+    width: 180px;
+  }
+
+  .single-item.in-list .single-item-info {
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -1,0 +1,13 @@
+.list-component {
+  display: flex;
+}
+
+.list-component.in-list {
+  flex-direction: column;
+}
+
+.list-component.in-grid {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

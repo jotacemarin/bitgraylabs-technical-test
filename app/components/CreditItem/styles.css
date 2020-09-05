@@ -1,0 +1,27 @@
+.credit-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 210px;
+  height: 42px;
+  margin: 8px 0;
+  margin-right: 8px;
+}
+
+.credit-item-container-img {
+  height: 100%;
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.credit-item-img {
+  height: 100%;
+  width: auto;
+}
+
+a.credit-item-name {
+  color: #458a1d;
+  text-decoration: none;
+}

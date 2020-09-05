@@ -1,1 +1,15 @@
-[]
+{
+  "app.components.SingleItem.withoutName": "Without Name Available",
+  "app.containers.HomePage.header": "This is the HomePage container!",
+  "app.containers.HomePage.titleHeader": "Comic Book",
+  "app.containers.HomePage.subtitleHeader": "Latest Issues",
+  "app.containers.HomePage.buttonList": "List",
+  "app.containers.HomePage.buttonGrid": "Grid",
+  "app.containers.DetailItem.header": "This is the HomePage container!",
+  "app.containers.DetailItem.characters": "Characters",
+  "app.containers.DetailItem.teams": "Characters",
+  "app.containers.DetailItem.locations": "Locations",
+  "app.containers.DetailItem.concepts": "Concepts",
+  "app.containers.DetailItem.withoutName": "Without Name Available",
+  "app.containers.NotFoundPage.header": "This is the NotFoundPage container!"
+}

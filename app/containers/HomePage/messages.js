@@ -1,23 +1,11 @@
-/*
- * HomePage Messages
- *
- * This contains all the text for the HomePage container.
- */
 import { defineMessages } from 'react-intl';
 
 export const scope = 'app.containers.HomePage';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the HomePage container!',
-  },
-  titleHeader: {
-    id: `${scope}.titleHeader`,
-    defaultMessage: 'Comic Book',
-  },
-  subtitleHeader: {
-    id: `${scope}.subtitleHeader`,
-    defaultMessage: 'Latest Issues',
-  },
+  header: { id: `${scope}.header` },
+  titleHeader: { id: `${scope}.titleHeader` },
+  subtitleHeader: { id: `${scope}.subtitleHeader` },
+  buttonList: { id: `${scope}.buttonList` },
+  buttonGrid: { id: `${scope}.buttonGrid` },
 });

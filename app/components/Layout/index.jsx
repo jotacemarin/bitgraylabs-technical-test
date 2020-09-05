@@ -1,3 +1,4 @@
+// Dependencies
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,6 +9,11 @@ import Topbar from 'components/Topbar';
 // Styles
 import './styles.css';
 
+/**
+ * @author Julio Marin
+ * @file app\components\Layout\index.jsx
+ * @description Layout component
+ */
 export const Layout = ({ title, subtitle, children, loading, buttons }) => (
   <Fragment>
     <Topbar title={title} subtitle={subtitle} buttons={buttons} />
@@ -16,6 +22,9 @@ export const Layout = ({ title, subtitle, children, loading, buttons }) => (
   </Fragment>
 );
 
+/**
+ * Component properties
+ */
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
@@ -24,6 +33,9 @@ Layout.propTypes = {
   buttons: PropTypes.array,
 };
 
+/**
+ * Default component properties
+ */
 Layout.defaultProps = {
   loading: false,
   buttons: [],

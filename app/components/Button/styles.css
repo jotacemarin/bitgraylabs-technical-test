@@ -6,6 +6,7 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
 }
 
 button:last-child {
@@ -16,20 +17,44 @@ button:first-child {
   margin-left: 8px;
 }
 
+button.selected {
+  color: red;
+}
+
+button.only-icon {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+button.float {
+  position: fixed;
+  bottom: 42px;
+  right: 42px;
+}
+
+button.full {
+  width: 100%;
+  justify-content: center;
+}
+
 span.button-icon {
   margin-right: 4px;
-  visibility: none;
 }
+
 span.button-icon.visible {
   display: inline;
 }
 
-button.selected {
-  color: red;
+button.only-icon span.button-icon {
+  margin-right: 0;
 }
 
 @media (max-width: 425px) {
   .button-label {
     display: none;
+  }
+
+  span.button-icon {
+    margin-right: 0;
   }
 }

@@ -1,19 +1,14 @@
-export const capitalize = str => {
-  if (str && str.length > 0) {
-    return str.replace(
-      /\w\S*/g,
-      txt => `${txt.charAt(0).toUpperCase()}${txt.substr(1)}`,
-    );
-  }
+/**
+ * @author Julio Marin
+ * @file app\commons\helper.js
+ * @description Button component
+ */
 
-  return '';
-};
-
-export const isJSON = str => {
-  try {
-    JSON.parse(str);
-  } catch (e) {
-    return false;
-  }
-  return true;
-};
+/**
+ * Helper to generate unique id
+ * @returns { string } UUID
+ */
+export const generateUUID = () =>
+  Math.random()
+    .toString(36)
+    .substring(2) + Date.now().toString(36);

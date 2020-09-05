@@ -1,0 +1,16 @@
+.credit-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.credit-list-title {
+  margin: 16px 0 8px 0;
+  padding-bottom: 8px;
+  border-bottom: solid 1px #000;
+}

@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,6 +8,11 @@ import Button from 'components/Button';
 // Styles
 import './styles.css';
 
+/**
+ * @author Julio Marin
+ * @file app\components\Topbar\index.jsx
+ * @description SingleItem component
+ */
 export const Topbar = ({ title, subtitle, buttons }) => (
   <header>
     <h1 className="topbar-title">{title}</h1>
@@ -21,12 +27,18 @@ export const Topbar = ({ title, subtitle, buttons }) => (
   </header>
 );
 
+/**
+ * Component properties
+ */
 Topbar.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   buttons: PropTypes.array,
 };
 
+/**
+ * Default component properties
+ */
 Topbar.defaultProps = {
   buttons: [],
 };

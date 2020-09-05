@@ -1,2 +1,2 @@
-export const VIEW_LIST = 'Cbsd/HomePage/VIEW_LIST';
-export const VIEW_GRID = 'Cbsd/HomePage/VIEW_GRID';
+export const TOGGLE_VIEW = 'Cbsd/HomePage/TOGGLE_VIEW';
+export const GET_ISSUES = 'Cbsd/HomePage/GET_ISSUES';

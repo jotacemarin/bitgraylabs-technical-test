@@ -1,64 +1,35 @@
-import 'whatwg-fetch';
+/**
+ * @author Julio Marin
+ * @file app\commons\request.js
+ * @description Button component
+ */
 
-function parseJSON(response) {
-  if (response.status === 204 || response.status === 205) {
-    return null;
-  }
-  return response.json();
-}
+// Dependencies
+import axios from 'axios';
 
-async function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
+// URL proxy to consume endpoint
+const proxy = 'http://localhost:4000/proxy?url=';
 
-  const errorResponse = await parseJSON(response);
-  const error = new Error(errorResponse.message);
-  error.status = errorResponse.status;
-  error.code = errorResponse.message ? errorResponse.message : 'E00';
-  throw error;
-}
+/**
+ * Helper to handle unexpected error
+ * @throws { error }
+ */
+export const unHandleError = async () => {
+  throw new Error('unhandledError');
+};
 
-async function unHandleError(err) {
-  const error = new Error(err.message);
-  error.code = 'E00';
-  throw error;
-}
-
-export default function request(url, receivedOptions) {
+/**
+ * Helper to make a request to endpoint
+ * @param { string } url - remote endpoint
+ * @param { object } receivedOptions - headers of request
+ * @returns { Promise } returns a promise
+ */
+export default async function request(url, receivedOptions) {
   const options = Object.assign({}, receivedOptions);
 
-  let baseURL = process.env.REACT_APP_API;
-
-  // In case of use external URL
-  if (options.externalUrl) {
-    baseURL = '';
-  } else {
-    // Default headers
-    let headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      credentials: 'same-origin',
-      mode: 'cors',
-      'from-to': 'web',
-    };
-
-    // check autorization JSON
-    if (typeof options.authorization !== 'undefined' && options.authorization) {
-      headers.authorization = `Bearer ${options.authorization}`;
-    }
-
-    // Add Headers for request
-    if (typeof options.headers !== 'undefined' && options.headers) {
-      headers = { ...headers, ...options.headers };
-    }
-
-    options.headers = new Headers(headers);
-  }
-
   // Execute request
-  return fetch(baseURL.concat(url), options)
+  return axios
+    .request({ ...options, url: proxy.concat(url) })
     .catch(unHandleError)
-    .then(checkStatus)
-    .then(parseJSON);
+    .then(({ data }) => data);
 }

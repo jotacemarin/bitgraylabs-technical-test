@@ -1,45 +1,51 @@
 import React, { Component } from 'react';
-import { injectIntl, intlShape } from 'react-intl';
 import PropTypes from 'prop-types';
+import { injectIntl, intlShape } from 'react-intl';
 import { FaList } from 'react-icons/fa';
 import { BsFillGrid3X2GapFill } from 'react-icons/bs';
 
 // Components
 import Layout from 'components/Layout';
-import List from 'components/List';
+import GridList from 'components/GridList';
+import DetailItem from 'containers/modals/DetailItem';
 
 // Messages
 import messages from './messages';
 
+// Local Helpers
+import { parseElements } from './helpers';
+
 export class HomePage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      offset: 0,
+      results: [],
+    };
+  }
+
   componentDidMount() {
-    console.log(this.props);
+    this.getIssues();
   }
 
   render() {
     const {
       intl: { formatMessage },
       loading,
+      gridView,
     } = this.props;
+    const { results } = this.state;
     const buttons = [
-      { onClick: () => true, label: 'dummy 1', icon: <FaList /> },
-      { onClick: () => true, label: 'dummy 2', icon: <BsFillGrid3X2GapFill /> },
-    ];
-    const elements = [
       {
-        image:
-          'https://comicvine1.cbsistatic.com/uploads/original/5/58993/2645776-chamber_of_chills__13_cgc_8.5.jpg',
-        date: '2008-06-06 11:10:16',
-        name: 'The Lost Race',
-        issue: 13,
+        onClick: () => this.changeView(false),
+        label: formatMessage(messages.buttonList),
+        icon: <FaList />,
       },
       {
-        image:
-          'https://comicvine1.cbsistatic.com/uploads/original/5/58993/2645776-chamber_of_chills__13_cgc_8.5.jpg',
-        date: '2008-06-06 11:10:16',
-        name:
-          'The Lost Race the lost race the lost race the lost race the lost race ',
-        issue: 14,
+        onClick: () => this.changeView(true),
+        label: formatMessage(messages.buttonGrid),
+        icon: <BsFillGrid3X2GapFill />,
       },
     ];
     return (
@@ -49,15 +55,63 @@ export class HomePage extends Component {
         subtitle={formatMessage(messages.subtitleHeader)}
         buttons={buttons}
       >
-        <List elements={elements} />
+        <GridList
+          elements={parseElements(results)}
+          mode={gridView}
+          onClick={this.getIssue}
+          getMore={this.getIssues}
+        />
+        <DetailItem />
       </Layout>
     );
   }
+
+  changeView = isGrid => {
+    const {
+      actions: { toggleView },
+    } = this.props;
+    toggleView(isGrid);
+  };
+
+  getIssues = () => {
+    const {
+      globalActions: { setLoading },
+      actions: { getIssues },
+    } = this.props;
+    const { offset } = this.state;
+    setLoading(true);
+    getIssues(9, offset, this.getSuccessIssues);
+  };
+
+  getIssue = url => {
+    if (!url) {
+      return;
+    }
+
+    const {
+      detailItemActions: { displayModal },
+    } = this.props;
+    displayModal(true, url);
+  };
+
+  getSuccessIssues = response => {
+    const { results: previusResults } = this.state;
+    const { results } = response;
+    const nextOffset = results[results.length - 1].id;
+    this.setState({
+      offset: nextOffset,
+      results: previusResults.concat(results),
+    });
+  };
 }
 
 HomePage.propTypes = {
   intl: intlShape.isRequired,
+  globalActions: PropTypes.object,
+  detailItemActions: PropTypes.object,
+  actions: PropTypes.object,
   loading: PropTypes.bool,
+  gridView: PropTypes.bool,
 };
 
 export default injectIntl(HomePage);
